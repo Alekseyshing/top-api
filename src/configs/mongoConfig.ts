@@ -9,27 +9,25 @@ export const getMongoConfig = async (configService: ConfigService): Promise<Type
 };
 
 // admin:root @localhost: 27017 / admin
+// 'mongodb://admin:root@localhost:27017/admin'
 
 const getMongoString = (configService: ConfigService) =>
-  'mongodb://admin:root@localhost:27017/admin'
-
-
-// configService.get('MONGO_LOGIN') +
-// ':' +
-// configService.get('MONGO_PASSWORD') +
-// '@' +
-// configService.get('MONGO_HOST') +
-// ':' +
-// configService.get('MONGO_PORT') +
-// '/' +
-// configService.get('MONGO_AUTHDATABASE')
-
+  'mongodb://' +
+  configService.get('MONGO_LOGIN') +
+  ':' +
+  configService.get('MONGO_PASSWORD') +
+  '@' +
+  configService.get('MONGO_HOST') +
+  ':' +
+  configService.get('MONGO_PORT') +
+  '/' +
+  configService.get('MONGO_AUTHDATABASE');
 
 
 console.log(`${getMongoString}`);
 
 const getMongoOptions = () => ({
-  useCreateIndex: true,
+  // useCreateIndex: true,
   useUnifiedTopology: true,
   useNewUrlParser: true
 });
