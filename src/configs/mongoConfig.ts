@@ -24,8 +24,6 @@ const getMongoString = (configService: ConfigService) =>
   configService.get('MONGO_AUTHDATABASE');
 
 
-console.log(`${getMongoString}`);
-
 const getMongoOptions = () => ({
   // useCreateIndex: true,
   useUnifiedTopology: true,
