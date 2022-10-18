@@ -4,6 +4,7 @@ import { FileElementResponse } from './dto/File-element-response.response';
 import { path } from 'app-root-path';
 import { ensureDir, writeFile } from 'fs-extra';
 import { MFile } from './mfile.class';
+import * as sharp from 'sharp';
 
 @Injectable()
 export class FilesService {
@@ -20,5 +21,11 @@ export class FilesService {
     }
 
     return res;
+  }
+
+  convertToWebP(file: Buffer): Promise<Buffer> {
+    return sharp(file)
+      .webp()
+      .toBuffer()
   }
 }
