@@ -10,6 +10,7 @@ import { TypegooseModule } from 'nestjs-typegoose';
 import { getMongoConfig } from './configs/mongoConfig';
 import { FilesModule } from './files/files.module';
 import { SitemapModule } from './sitemap/sitemap.module';
+import { TelegramModule } from './telegram/telegram.module';
 
 @Module({
   imports: [
@@ -24,7 +25,8 @@ import { SitemapModule } from './sitemap/sitemap.module';
     ProductModule,
     ReviewModule,
     FilesModule,
-    SitemapModule
+    SitemapModule,
+    TelegramModule
   ],
   controllers: [AppController],
   providers: [AppService],
